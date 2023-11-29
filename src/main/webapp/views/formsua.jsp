@@ -22,8 +22,7 @@
 						
 					<c:if test="${gv !=null }">
 					<input type="hidden" name="id" value="<c:out value='${gv.maGV }'/>" />
-				</c:if>
-				<c:if test="${gv !=null }">
+			
 						<label for="name">Họ tên</label> <input type="text"
 							class="form-control" value="<c:out value='${gv.hoten }'/>"
 							id="name" name="hoten" placeholder="Name" required>

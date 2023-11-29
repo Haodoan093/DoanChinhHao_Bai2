@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.giangvienDao;
 import com.model.giangvien;
 
-
 @WebServlet("/")
 public class giangvienServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -85,7 +84,8 @@ public class giangvienServlet extends HttpServlet {
 
 	}
 
-	private void updateGV(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void updateGV(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// nhan tu form insert
 		int id = Integer.parseInt(request.getParameter("id"));
 		String hoten = request.getParameter("hoten");
@@ -93,7 +93,7 @@ public class giangvienServlet extends HttpServlet {
 		String tenbomon = request.getParameter("tenbomon");
 		float hesoluong = Float.parseFloat(request.getParameter("hesoluong"));
 
-		giangvien gv = new giangvien(hoten, ngaysinh, tenbomon, hesoluong,id);
+		giangvien gv = new giangvien(hoten, ngaysinh, tenbomon, hesoluong, id);
 		this.dao.updateGV(gv);
 		response.sendRedirect("list");
 
@@ -103,8 +103,8 @@ public class giangvienServlet extends HttpServlet {
 	private void showFormEdit(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-
-		request.setAttribute("gv", this.dao.getGV(id));
+		giangvien gv = this.dao.getGV(id);
+		request.setAttribute("gv", gv);
 		RequestDispatcher rd = request.getRequestDispatcher("views/formsua.jsp");
 		rd.forward(request, response);
 

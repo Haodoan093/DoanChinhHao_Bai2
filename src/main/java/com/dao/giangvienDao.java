@@ -21,7 +21,7 @@ public class giangvienDao {
 	private String insert = "INSERT INTO giangvien(hoten,ngaysinh,tenbomon,hesoluong) VALUES (?, ?,?,?)";
 
 	private String selectGV = "SELECT * FROM giangvien WHERE maGV =?";
-	//seảch
+	//seảchư
 	private String searchname = "SELECT * FROM giangvien WHERE hoten LIKE ? ";
 	
 	private String searchma = "SELECT * FROM giangvien WHERE maGV LIKE  ?";
